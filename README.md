@@ -15,7 +15,10 @@ Para iniciar, siga los siguientes pasos:
 2. **Guarda el Request en un archivo de texto :** 
    
    
-   <span>![</span><span>Guarde el Request de BurpSuite en un archivo de texto</span><span>]</span><span>(</span><span>https://raw.githubusercontent.com/brprodriguez/brsecurityheaders/main/Steps/1.png</span><span>)</span>
+   ![uarde el Request de BurpSuite en un archivo de texto](https://raw.githubusercontent.com/brprodriguez/brsecurityheaders/main/Steps/1.png)
+
+
+   
  
  
    
