@@ -2,7 +2,7 @@
 
 ### Resumen 
 
-- **brsecurityheaders.py** Simple script to analyzed headers from a BurpSuite text-file request from BurpSuite and based on shcheck.py code.
+- **brsecurityheaders.py** Simple script to analyzed headers from a BurpSuite text-file request and based on shcheck.py code.
 
 ### Instalación
 
