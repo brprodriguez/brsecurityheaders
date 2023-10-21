@@ -36,7 +36,7 @@ Para iniciar, siga los siguientes pasos:
 
 * 20 de Octubre del 2023: brsecurityheaders.py v1.0 
 
-#### Nuevas actualizaciones, mejoras o nuevas funcionalidades son bienvenidas
+### Nuevas actualizaciones, mejoras o nuevas funcionalidades son bienvenidas
 
 Licencia
 ---------------
