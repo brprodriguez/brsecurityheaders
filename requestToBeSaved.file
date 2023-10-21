@@ -1,0 +1,12 @@
+GET / HTTP/2
+Host: www.google.com
+Cookie: NID=511=ay85ViRan8GaM5Xh2pqU8UMLUkpYCTPQSQpiyL25Mcqlnbl-l5SA7cwYSt3Urhxhk_wxRvWvVz4FWE8fNAkmC3R8ogDPFUu3ALc6aBEABGmZSzGcvrW6dikYNbJ3-Ynspw2ar6Q7ic0JFH1WU9RAA1rjfvnA8KH7MRmowu3qwci0mVG-KF5jZrFuXZidIhc
+Sec-Ch-Ua-Wow64: ?0
+Sec-Ch-Ua-Full-Version-List: 
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.5938.63 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br
+Accept-Language: es-ES,es;q=0.9
+
