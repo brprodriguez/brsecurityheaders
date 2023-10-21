@@ -18,25 +18,20 @@ Para iniciar, siga los siguientes pasos:
    ![Seleccione "Copy to file"](https://raw.githubusercontent.com/brprodriguez/brsecurityheaders/main/Steps/1.png)
 
 
-2. **Guarda el Request en un archivo de texto :**    
+2. **Guarda el Request en un archivo en la misma carpeta que el script brsecurityheaders.py :**    
  
    ![Guarde el Request en la misma carpeta que el script](https://raw.githubusercontent.com/brprodriguez/brsecurityheaders/main/Steps/2.png)
    
-3. **Comando de ejemplo :**: python brsecurityheaders.py requestToBeSaved.file 
+3. **Comando:** python brsecurityheaders.py <BurpSuite_Requestfile_name>
+   
+4. **Ejpmplo:** 
    ```
    python brsecurityheaders.py requestToBeSaved.file 
 	```
-4. **Resultado :**    
+5. **Resultado :**    
  
-   ![Guarde el Request en la misma carpeta que el script](https://raw.githubusercontent.com/brprodriguez/brsecurityheaders/main/Steps/3.png)
+   ![Resultado de ejemplo](https://raw.githubusercontent.com/brprodriguez/brsecurityheaders/main/Steps/3.png)
 	
-
-### Opciones
-
-```
-Comando: python brsecurityheaders.py <BurpSuite_Requestfile>
-
-```
 ### Actualizacioens 
 
 * 20 de Octubre del 2023: brsecurityheaders.py v1.0 
