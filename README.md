@@ -10,7 +10,7 @@ Para iniciar, siga los siguientes pasos:
 
 1. **Clone el repositorio de GitHub :** use el siguiente comando:
    ```
-   git clone https://github.com/brprodriguez/brsecurityheaders.git
+   git clone https://github.com/brprodriguez/brsecurityheaders.git && cd brsecurityheaders
    ``` 
 2. **Seleccion "Copy to file" en las opciones que ofrece BurpSuite:** 
    
