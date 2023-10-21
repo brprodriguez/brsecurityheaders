@@ -2,7 +2,7 @@
 
 ### Resumen 
 
-- **brsecurityheaders.py** Simple script to analyzed headers from a text-file request from BurpSuite and based on shcheck.py code.
+- **brsecurityheaders.py** Simple script to analyzed headers from a BurpSuite text-file request from BurpSuite and based on shcheck.py code.
 
 ### Instalación
 
@@ -12,34 +12,39 @@ Para iniciar, siga los siguientes pasos:
    ```
    git clone https://github.com/brprodriguez/brsecurityheaders.git
    ``` 
-2. **Guarda el Request en un archivo de texto :** 
+2. **Seleccion "Copy to file" en las opciones que ofrece BurpSuite:** 
    
    
-   ![uarde el Request de BurpSuite en un archivo de texto](https://raw.githubusercontent.com/brprodriguez/brsecurityheaders/main/Steps/1.png)
+   ![Seleccione "Copy to file"](https://raw.githubusercontent.com/brprodriguez/brsecurityheaders/main/Steps/1.png)
 
 
-   
+2. **Guarda el Request en un archivo de texto :**    
  
- 
+   ![Guarde el Request en la misma carpeta que el script](https://raw.githubusercontent.com/brprodriguez/brsecurityheaders/main/Steps/2.png)
    
-2. **Comando de ejemplo :**: python brsecurityheaders.py <requestfile>
+3. **Comando de ejemplo :**: python brsecurityheaders.py requestToBeSaved.file 
    ```
-   python brsecurityheaders.py
+   python brsecurityheaders.py requestToBeSaved.file 
 	```
+4. **Resultado :**    
+ 
+   ![Guarde el Request en la misma carpeta que el script](https://raw.githubusercontent.com/brprodriguez/brsecurityheaders/main/Steps/3.png)
+	
 
 ### Opciones
 
 ```
-Comando: gencard.py [-m MODO] [-c CANT] [Opciones]
+Comando: python brsecurityheaders.py <BurpSuite_Requestfile>
 
-Opciones:  
-  -h, --help            Muestra un mensaje de ayuda 
-
-  Obligatorio:
-    -m           (Obligatorio) MODO : AT -> Aleatorio Full Mutiples BIN, S -> Secuencial, A1 -> Aleatorio Simple 1 BIN 
-    -c           (Obligatorio) CANT : Cantidad de tarjetas a generar 
-    -b           (Opcional)    BIN : Identificador del Banco 
-    -f           (Opcional)    FILE PATH BANK : Ruta del archivo con información 
-	                        pública de Bancos. Por defecto se usa 
-				el archivo ./binfiles/binar.csv
 ```
+### Actualizacioens 
+
+* 20 de Octubre del 2023: brsecurityheaders.py v1.0 
+
+#### Nuevas actualizaciones, mejoras o nuevas funcionalidades son bienvenidas
+
+Licencia
+---------------
+Copyright (C) brprodriguez 
+
+Licencia Publica GNU, version 2
