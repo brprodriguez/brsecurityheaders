@@ -32,7 +32,7 @@ Para iniciar, siga los siguientes pasos:
  
    ![Resultado de ejemplo](https://raw.githubusercontent.com/brprodriguez/brsecurityheaders/main/Steps/3.png)
 	
-### Actualizacioens 
+### Actualizaciones 
 
 * 20 de Octubre del 2023: brsecurityheaders.py v1.0 
 
