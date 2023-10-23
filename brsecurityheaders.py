@@ -21,8 +21,8 @@ metodo, ruta, version_http = primera_linea
 #print(primera_linea)
 #Crear un diccionario para los encabezados
 encabezados = {}
-for linea in lineas[1:]:
-    #print(linea)
+    
+for linea in lineas[0:]:
     if not linea.strip():
         break  # Fin de los encabezados
     dupla = linea.strip().split(': ', 1)
@@ -33,7 +33,9 @@ for linea in lineas[1:]:
         clave = dupla[0]
         valor = None
         encabezados[clave] = valor
-  
+
+cuerpo_solicitud = ''.join(lineas[len(encabezados) + 1:]) 
+
 # Construir la URL completa
 url = "https://" + encabezados['Host'] + ruta
 
@@ -42,7 +44,12 @@ print(f"Request:\n\n{metodo} {ruta} HTTP/{version_http}")
 for clave, valor in encabezados.items():
     print(f"{clave}: {valor}")
 # Realizar la solicitud HTTP
-response = requests.get(url, headers=encabezados)
+
+
+if (metodo == "GET"):
+    response = requests.get(url, headers=encabezados)
+if (metodo == "POST"): 
+    response = requests.post(url, headers=encabezados, data = cuerpo_solicitud)
 
 # Verificar si la solicitud fue exitosa
 if response.status_code >= 200:
