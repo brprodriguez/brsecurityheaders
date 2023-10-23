@@ -2,7 +2,12 @@
 
 ### Resumen 
 
-- **brsecurityheaders.py** Simple script to analyzed headers from a BurpSuite text-file request and based on shcheck.py code.
+- **brsecurityheaders.py** 
+Es un script simple que permite analizar las cabeceras HTTP configuradas en la aplicación. Recibe como imput un archivo de texto de BurpSuite (Burpsuite Text-File Request) 
+
+### Pre-Requisitos
+
+Es necesario obtener el request text file de BurpSuite
 
 ### Instalación
 
@@ -12,19 +17,17 @@ Para iniciar, siga los siguientes pasos:
    ```
    git clone https://github.com/brprodriguez/brsecurityheaders.git && cd brsecurityheaders
    ``` 
-2. **Seleccion "Copy to file" en las opciones que ofrece BurpSuite:** 
-   
-   
+2. **En Burp Suite seleccione la opción "Copy to file":** 
+      
    ![Seleccione "Copy to file"](https://raw.githubusercontent.com/brprodriguez/brsecurityheaders/main/Steps/1.png)
 
-
-2. **Guarda el Request en un archivo en la misma carpeta que el script brsecurityheaders.py :**    
+2. **Guarde el Request en un archivo en la misma carpeta que el script brsecurityheaders.py :**    
  
    ![Guarde el Request en la misma carpeta que el script](https://raw.githubusercontent.com/brprodriguez/brsecurityheaders/main/Steps/2.png)
    
-3. **Comando:** python brsecurityheaders.py <BurpSuite_Requestfile_name>
+3. **Ejecute el comando:** python brsecurityheaders.py <BurpSuite_Requestfile_name>
    
-4. **Ejpmplo:** 
+4. **Ejemplo:** 
    ```
    python brsecurityheaders.py requestToBeSaved.file 
 	```
@@ -36,7 +39,7 @@ Para iniciar, siga los siguientes pasos:
 
 * 20 de Octubre del 2023: brsecurityheaders.py v1.0 
 
-### Nuevas actualizaciones, mejoras o nuevas funcionalidades son bienvenidas
+### Mejoras o nuevas funcionalidades son bienvenidas
 
 Licencia
 ---------------

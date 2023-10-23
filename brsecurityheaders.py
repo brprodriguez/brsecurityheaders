@@ -13,28 +13,29 @@ archivo_solicitud = nombre_de_archivo
 
 # Leer el archivo línea por línea
 with open(archivo_solicitud, 'r') as archivo:
-    lineas = archivo.readlines()
+    solicitud = archivo.read()
 
-# Separar la primera línea en método, ruta y versión HTTP
-primera_linea = lineas[0].strip().split()
-metodo, ruta, version_http = primera_linea
-#print(primera_linea)
-#Crear un diccionario para los encabezados
+# Dividir la solicitud en las partes necesarias
+partes = solicitud.split('\n\n')  # Separa la solicitud en el encabezado y el cuerpo
+lineas_encabezado = partes[0].split('\n')  # Divide el encabezado en líneas
+lineas_cuerpo = partes[1]
+
+# Parsear el método, la ruta y la versión HTTP
+primera_linea = lineas_encabezado[0]
+metodo, ruta, version_http = primera_linea.split()
+
+# Parsear los encabezados
 encabezados = {}
-    
-for linea in lineas[0:]:
-    if not linea.strip():
-        break  # Fin de los encabezados
-    dupla = linea.strip().split(': ', 1)
+for linea in lineas_encabezado[1:]:
+    dupla = linea.split(': ', 1)
     if (len(dupla)==2):
-        clave, valor = dupla[0],dupla[1]
-        encabezados[clave] = valor 
+        key, value = dupla[0],dupla[1]
+        encabezados[key] = value
     else:
-        clave = dupla[0]
-        valor = None
-        encabezados[clave] = valor
-
-cuerpo_solicitud = ''.join(lineas[len(encabezados) + 1:]) 
+        key = dupla[0]
+        value = None
+        encabezados[key] = value
+    
 
 # Construir la URL completa
 url = "https://" + encabezados['Host'] + ruta
@@ -44,12 +45,12 @@ print(f"Request:\n\n{metodo} {ruta} HTTP/{version_http}")
 for clave, valor in encabezados.items():
     print(f"{clave}: {valor}")
 # Realizar la solicitud HTTP
-
+print(lineas_cuerpo)
 
 if (metodo == "GET"):
     response = requests.get(url, headers=encabezados)
 if (metodo == "POST"): 
-    response = requests.post(url, headers=encabezados, data = cuerpo_solicitud)
+    response = requests.post(url, headers=encabezados, data = lineas_cuerpo.encode('utf-8'))
 
 # Verificar si la solicitud fue exitosa
 if response.status_code >= 200:
