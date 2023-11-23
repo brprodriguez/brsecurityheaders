@@ -1,6 +1,9 @@
 import sys
 import requests
+import urllib3
 from colorama import Fore, Style
+
+urllib3.disable_warnings()
 
 if len(sys.argv) != 2:
     print("Uso: python brsecurityheader.py <nombre_de_archivo>")
@@ -17,8 +20,14 @@ with open(archivo_solicitud, 'r') as archivo:
 
 # Dividir la solicitud en las partes necesarias
 partes = solicitud.split('\n\n')  # Separa la solicitud en el encabezado y el cuerpo
+#print(partes)
+#print("===")
 lineas_encabezado = partes[0].split('\n')  # Divide el encabezado en líneas
+#print(lineas_encabezado)
+#print("===")
 lineas_cuerpo = partes[1]
+#print(lineas_cuerpo)
+#print("===")
 
 # Parsear el método, la ruta y la versión HTTP
 primera_linea = lineas_encabezado[0]
@@ -46,11 +55,11 @@ for clave, valor in encabezados.items():
     print(f"{clave}: {valor}")
 # Realizar la solicitud HTTP
 print(lineas_cuerpo)
-
+    
 if (metodo == "GET"):
-    response = requests.get(url, headers=encabezados)
+    response = requests.get(url, headers=encabezados, verify=False)
 if (metodo == "POST"): 
-    response = requests.post(url, headers=encabezados, data = lineas_cuerpo.encode('utf-8'))
+    response = requests.post(url, headers=encabezados, data = lineas_cuerpo.encode('utf-8'), verify=False)
 
 # Verificar si la solicitud fue exitosa
 if response.status_code >= 200:
@@ -65,6 +74,7 @@ else:
 
 #
 security_headers = [
+    "X-XSS-Protection",
     "X-Frame-Options", 
     "X-Content-Type-Options", 
     "Strict-Transport-Security", 
