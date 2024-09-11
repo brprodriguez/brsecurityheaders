@@ -4,7 +4,31 @@ import urllib3
 from colorama import Fore, Style
 
 urllib3.disable_warnings()
-
+security_headers = [
+    "X-XSS-Protection",
+    "X-Frame-Options", 
+    "X-Content-Type-Options", 
+    "Strict-Transport-Security", 
+    "Content-Security-Policy", 
+    "Referrer-Policy", 
+    #"X-Ratelimit-Limit",
+    #"X-Ratelimit-Remaining",
+    #"X-Ratelimit-Reset",
+    #"Permissions-Policy",
+    #"Ratelimit-PolicY",
+    #"Ratelimit-Limit",
+    #"Ratelimit-Remaining", 
+    #"Ratelimit-Reset"
+    "Cross-Origin-Resource-Policy", 
+    "Cross-Origin-Opener-Policy",
+    "Cross-Origin-Embedder-Policy" 
+    
+]
+def search_header(header,response_headers):
+    for key,value in response_headers:
+        if header.upper() == key.upper():
+            return key,value
+    return None, None 
 if len(sys.argv) != 2:
     print("Uso: python brsecurityheader.py <nombre_de_archivo>")
 else:
@@ -47,14 +71,40 @@ for linea in lineas_encabezado[1:]:
     
 
 # Construir la URL completa
-url = "https://" + encabezados['Host'] + ruta
+url = "http://blog.terahost.exam/index.php?page=index"
 
 # Imprimir la solicitud HTTP
-print(f"Request:\n\n{metodo} {ruta} HTTP/{version_http}")
+#print(f"Request:\n\n{metodo} {ruta} HTTP/{version_http}")
 for clave, valor in encabezados.items():
     print(f"{clave}: {valor}")
 # Realizar la solicitud HTTP
+
+print("\nHeaders analyzed for: ",end="")
+print(Fore.BLUE + url + Style.RESET_ALL)
+for security_header in security_headers:
+    key,value = search_header(security_header,encabezados.items()) 
+    if key is not None:
+        if len(value) != 0: 
+            print("Header: ",end="")
+            print(Fore.LIGHTGREEN_EX + key + Style.RESET_ALL, end="")
+            print( " is present! Value: " + value )            
+        else:
+            print("Header: ",end="")
+            print(Fore.YELLOW + key + Style.RESET_ALL, end="")
+            print( " is present with but No Value Found. " + value)
+    else:
+        print("Missing security header: ",end="")
+        print(Fore.YELLOW + security_header + Style.RESET_ALL)
+
+
+
 print(lineas_cuerpo)
+
+
+
+exit(0)
+
+print("=========================")
     
 if (metodo == "GET"):   
     response = requests.get(url, headers=encabezados,allow_redirects=False, verify=False)    
@@ -73,40 +123,11 @@ else:
     exit(0)
 
 #
-security_headers = [
-    "X-Frame-Options", 
-    "X-Content-Type-Options", 
-    "Strict-Transport-Security", 
-    "Content-Security-Policy", 
-    "Referrer-Policy", 
-    "Permissions-Policy",
-    "Cross-Origin-Resource-Policy", 
-    "Cross-Origin-Opener-Policy",
-    "Cross-Origin-Embedder-Policy"
-]
 
 
-def search_header(header,response_headers):
-    for key,value in response_headers:
-        if header.upper() == key.upper():
-            return key,value
-    return None, None 
 
-print("\nHeaders analyzed for: ",end="")
-print(Fore.BLUE + url + Style.RESET_ALL)
-for security_header in security_headers:
-    key,value = search_header(security_header,response.headers.items()) 
-    if key is not None:
-        if len(value) != 0: 
-            print("Header: ",end="")
-            print(Fore.LIGHTGREEN_EX + key + Style.RESET_ALL, end="")
-            print( " is present! Value: " + value )            
-        else:
-            print("Header: ",end="")
-            print(Fore.YELLOW + key + Style.RESET_ALL, end="")
-            print( " is present with but No Value Found. " + value)
-    else:
-        print("Missing security header: ",end="")
-        print(Fore.YELLOW + security_header + Style.RESET_ALL)
+
+
+
 exit(0)
 

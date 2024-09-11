@@ -74,15 +74,28 @@ else:
 
 #
 security_headers = [
+    "X-Xss-Protection",
     "X-Frame-Options", 
     "X-Content-Type-Options", 
     "Strict-Transport-Security", 
     "Content-Security-Policy", 
-    "Referrer-Policy", 
-    "Permissions-Policy",
-    "Cross-Origin-Resource-Policy", 
-    "Cross-Origin-Opener-Policy",
-    "Cross-Origin-Embedder-Policy"
+    "Referrer-Policy",
+
+#"X-Ratelimit-Limit",
+#"X-Ratelimit-Remaining",
+ # "X-Ratelimit-Reset",
+    "X-Ratelimit-Limit",
+    "X-Ratelimit-Remaining",
+    "X-Ratelimit-Reset",
+    #"Permissions-Policy",
+    #"Ratelimit-PolicY",
+    #"Ratelimit-Limit",
+    #"Ratelimit-Remaining", 
+    #"Ratelimit-Reset"
+    #"Cross-Origin-Resource-Policy", 
+    #"Cross-Origin-Opener-Policy",
+    #"Cross-Origin-Embedder-Policy" 
+    
 ]
 
 

@@ -56,10 +56,10 @@ for clave, valor in encabezados.items():
 # Realizar la solicitud HTTP
 print(lineas_cuerpo)
     
-if (metodo == "GET"):   
-    response = requests.get(url, headers=encabezados,allow_redirects=False, verify=False)    
+if (metodo == "GET"):
+    response = requests.get(url, headers=encabezados, verify=False)
 if (metodo == "POST"): 
-    response = requests.post(url, headers=encabezados, data = lineas_cuerpo.encode('utf-8'), allow_redirects=False, verify=False)
+    response = requests.post(url, headers=encabezados, data = lineas_cuerpo.encode('utf-8'), verify=False)
 
 # Verificar si la solicitud fue exitosa
 if response.status_code >= 200:
@@ -74,6 +74,7 @@ else:
 
 #
 security_headers = [
+    "X-XSS-Protection",
     "X-Frame-Options", 
     "X-Content-Type-Options", 
     "Strict-Transport-Security", 
@@ -97,14 +98,9 @@ print(Fore.BLUE + url + Style.RESET_ALL)
 for security_header in security_headers:
     key,value = search_header(security_header,response.headers.items()) 
     if key is not None:
-        if len(value) != 0: 
-            print("Header: ",end="")
-            print(Fore.LIGHTGREEN_EX + key + Style.RESET_ALL, end="")
-            print( " is present! Value: " + value )            
-        else:
-            print("Header: ",end="")
-            print(Fore.YELLOW + key + Style.RESET_ALL, end="")
-            print( " is present with but No Value Found. " + value)
+        print("Header: ",end="")
+        print(Fore.LIGHTGREEN_EX + key + Style.RESET_ALL, end="")
+        print( " is present! Value: " + value)
     else:
         print("Missing security header: ",end="")
         print(Fore.YELLOW + security_header + Style.RESET_ALL)
